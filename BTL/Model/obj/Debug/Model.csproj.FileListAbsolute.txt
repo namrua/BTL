@@ -1,0 +1,15 @@
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\Model.dll.config
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\Model.dll
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\Model.pdb
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\EntityFramework.dll
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\PagedList.dll
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\EntityFramework.xml
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\PagedList.xml
+C:\Users\macbookpro\source\repos\BTL\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\macbookpro\source\repos\BTL\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\macbookpro\source\repos\BTL\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\macbookpro\source\repos\BTL\Model\obj\Debug\Model.dll
+C:\Users\macbookpro\source\repos\BTL\Model\obj\Debug\Model.pdb

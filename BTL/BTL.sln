@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTL", "BTL\BTL.csproj", "{6DF232ED-459A-47AD-AD51-E41C9A4E52B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{948AA5E9-3494-4A9B-AA28-AFADC25687D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DF232ED-459A-47AD-AD51-E41C9A4E52B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF232ED-459A-47AD-AD51-E41C9A4E52B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF232ED-459A-47AD-AD51-E41C9A4E52B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF232ED-459A-47AD-AD51-E41C9A4E52B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{948AA5E9-3494-4A9B-AA28-AFADC25687D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948AA5E9-3494-4A9B-AA28-AFADC25687D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948AA5E9-3494-4A9B-AA28-AFADC25687D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948AA5E9-3494-4A9B-AA28-AFADC25687D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DB6F336-EF41-45DC-8042-ABFF29106B1C}
+	EndGlobalSection
+EndGlobal

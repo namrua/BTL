@@ -1,0 +1,91 @@
+﻿@model PagedList.IPagedList<Model.EF.User>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout2.cshtml";
+}
+
+<h2>Danh sach nguoi dung</h2>
+
+<p>
+    <button type="button" class="btn btn-success"> @Html.ActionLink("Create New", "Create", null, new { style = "color:aliceblue" })</button>
+</p>
+<p>
+
+    @using (Html.BeginForm("Index", "Users", FormMethod.Post))
+    {
+        <input class="col-md-3" value="@ViewBag.searchString" type="text" placeholder="Tim kiem" name="searchString" />
+        <button type="submit" class="label-info">Search</button>
+ 
+    }
+
+</p>
+<table id="example1" class="table table-bordered table-striped" border="1">
+    <tr>
+        <th>
+            @Html.Label("Nguoi dung");
+        </th>
+
+        <th>
+            @Html.Label("Ho ten")
+        </th>
+        <th>
+            @Html.Label("Dia chi")
+        </th>
+        <th>
+            @Html.Label("Email")
+        </th>
+        <th>
+            @Html.Label("So dien thoai")
+        </th>
+        <th>
+            @Html.Label("Anh")
+        </th>
+        <th>
+            @Html.Label("Trang thai")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                <img src="@item.Image" height="60" width="70"/>
+            </td>
+            <td>
+                @if (item.Status)
+                {
+                    @Html.Label("Active")
+                }
+                else
+                {
+                    @Html.Label("Block")
+                }
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+                <button type="button" class="btn btn-info"> @Html.ActionLink("Details", "Details", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+                <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action(("Index"), new { page, @searchString = @ViewBag.searchString }))
