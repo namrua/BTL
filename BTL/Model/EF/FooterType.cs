@@ -6,12 +6,12 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("MenuType")]
-    public partial class MenuType
+    [Table("FooterType")]
+    public partial class FooterType
     {
         public int ID { get; set; }
 
-        [StringLength(50)]
+        [StringLength(250)]
         public string Name { get; set; }
     }
 }

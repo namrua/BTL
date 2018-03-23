@@ -9,12 +9,11 @@ namespace Model.EF
     [Table("Contact")]
     public partial class Contact
     {
-        public int? ID { get; set; }
+        public int ID { get; set; }
 
         [Column(TypeName = "ntext")]
         public string Content { get; set; }
 
-        [StringLength(10)]
-        public string Status { get; set; }
+        public bool? Status { get; set; }
     }
 }

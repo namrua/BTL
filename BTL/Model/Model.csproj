@@ -55,6 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\MenuDao.cs" />
+    <Compile Include="Dao\ProductCategoryDao.cs" />
+    <Compile Include="Dao\ProductDao.cs" />
+    <Compile Include="Dao\SlideDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Category.cs" />
@@ -64,6 +68,8 @@
     <Compile Include="EF\Dbcontext.cs" />
     <Compile Include="EF\FeedBack.cs" />
     <Compile Include="EF\Footer.cs" />
+    <Compile Include="EF\FooterType.cs" />
+    <Compile Include="EF\Menu.cs" />
     <Compile Include="EF\MenuType.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\ProductCategory.cs" />

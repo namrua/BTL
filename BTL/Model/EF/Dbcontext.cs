@@ -14,10 +14,13 @@ namespace Model.EF
 
         public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<ContentTag> ContentTags { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<Footer> Footers { get; set; }
+        public virtual DbSet<FooterType> FooterTypes { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuType> MenuTypes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
@@ -25,7 +28,6 @@ namespace Model.EF
         public virtual DbSet<SystemConfig> SystemConfigs { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,13 +47,17 @@ namespace Model.EF
                 .Property(e => e.TagID)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<FeedBack>()
-                .Property(e => e.Status)
+            modelBuilder.Entity<Footer>()
+                .Property(e => e.Link)
                 .IsFixedLength();
 
             modelBuilder.Entity<Footer>()
-                .Property(e => e.ID)
-                .IsUnicode(false);
+                .Property(e => e.TypeID)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Footer>()
+                .Property(e => e.Target)
+                .IsFixedLength();
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Price)
@@ -71,10 +77,6 @@ namespace Model.EF
 
             modelBuilder.Entity<Slide>()
                 .Property(e => e.CreatedBy)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Slide>()
-                .Property(e => e.Status)
                 .IsFixedLength();
 
             modelBuilder.Entity<SystemConfig>()
@@ -103,10 +105,6 @@ namespace Model.EF
 
             modelBuilder.Entity<User>()
                 .Property(e => e.CreatedBy)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.Status)
                 .IsFixedLength();
         }
     }
