@@ -1,9 +1,13 @@
-﻿@model List<Model.EF.ProductCategory>
-
-
-       
+﻿@model List<Model.EF.ProductCategory>     
         @foreach (var item in Model)
         {
             var url = "/san-pham/" + item.MetaTitle + "-" + item.ID;
-                 <li><a href="@url">@item.Name</a></li>
+             <li>
+                 <a href="@url">@item.Name</a>
+                    <ul class="submenu">
+                        <li><a href="#">Laptop MSI</a></li>
+                        <li><a href="#">Laptop Dell</a></li>
+                        <li><a href="#">Laptop Asus</a></li>
+                    </ul>
+            </li>
         }

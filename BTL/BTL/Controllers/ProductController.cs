@@ -21,9 +21,10 @@ namespace BTL.Controllers
             return PartialView(model);
         }
 
-        public ActionResult Category(long ID)
+        public ActionResult ProductCategory(long ID)
         {
             var model = new ProductCategoryDao().Details(ID);
+            ViewBag.ListProduct = new ProductDao().ListAllByProductCategoryID(ID);
             return View(model);
         }
         public ActionResult Product(long ID)

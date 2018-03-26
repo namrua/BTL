@@ -20,7 +20,7 @@
                         <div id="products_example">
                             <div id="products">
                                 <div class="slides_container">
-                                    <a href="#" target="_blank"><img src="@Model.Image" alt=" " /></a>
+                                    <a href="#" target="_blank"><img src="@Model.Image" style="width:304px;height:274px" alt=" " /></a>
 
                                 </div>
 
@@ -228,6 +228,20 @@
             type: 'default', //Types: default, vertical, accordion
             width: 'auto', //auto or any width like 600px
             fit: true   // 100% fit in a container
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $('#products').slides({
+            preload: true,
+            preloadImage: 'img/loading.gif',
+            effect: 'slide, fade',
+            crossfade: true,
+            slideSpeed: 350,
+            fadeSpeed: 500,
+            generateNextPrev: true,
+            generatePagination: false
         });
     });
 </script>

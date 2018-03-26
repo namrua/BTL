@@ -16,7 +16,7 @@ namespace BTL
             routes.MapRoute(
                 name: "Product Category",
                 url: "san-pham/{metatitle}-{id}",
-                defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },
+                defaults: new { controller = "Product", action = "ProductCategory", id = UrlParameter.Optional },
                 namespaces: new[] { "BTL.Controllers" }
             );
             routes.MapRoute(

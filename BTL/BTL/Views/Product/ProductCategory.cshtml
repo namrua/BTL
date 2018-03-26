@@ -1,0 +1,38 @@
+﻿@model Model.EF.ProductCategory
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_layoutC.cshtml";
+    var ListProduct = (List<Model.EF.Product>)ViewBag.ListProduct;
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>New Products</h3>
+        </div>
+        <div class="see">
+            <p><a href="#">See all Products</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in ListProduct)
+        {
+            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.Image" style="width:212px; height:212px" alt="@item.Image" /></a>
+                <h2>@item.Name </h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.Price.HasValue?item.Price.Value.ToString("N0"): "Lien he")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="preview.html">Add to Cart</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        }
+        </div>
+    </div>
+

@@ -29,5 +29,22 @@ namespace Model.Dao
             var model = db.Products.Find(ID);
             return db.Products.Where(x => x.ID != ID && x.Status == true&& x.CategoryID==model.CategoryID).ToList();
         }
+        public List<Product> ListAllByProductCategoryID(long ID)
+        {
+            var model = db.Categories.Where(x => x.ParentID == ID).ToList();
+            var modelx = new List<Product>();
+            foreach (var item in model)
+            {
+                var m = db.Products.Where(x => x.CategoryID == item.ID);
+                if (m != null)
+                {
+                    foreach (var itemx in m)
+                    {
+                        modelx.Add(itemx);
+                    }
+                }
+            }
+            return modelx;
+        }
     }
 }
