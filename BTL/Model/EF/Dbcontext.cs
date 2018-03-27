@@ -75,6 +75,11 @@ namespace Model.EF
                 .Property(e => e.CreatedBy)
                 .IsFixedLength();
 
+            modelBuilder.Entity<ProductCategory>()
+                .HasMany(e => e.Categories)
+                .WithOptional(e => e.ProductCategory)
+                .HasForeignKey(e => e.ParentID);
+
             modelBuilder.Entity<Slide>()
                 .Property(e => e.CreatedBy)
                 .IsFixedLength();

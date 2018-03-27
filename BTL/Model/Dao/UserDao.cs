@@ -57,7 +57,6 @@ namespace Model.Dao
             return model.ToPagedList(page, pagesize);
         }
 
-
         public User ViewDetail(int id)
         {
             return db.Users.Find(id);

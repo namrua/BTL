@@ -2531,6 +2531,9 @@
     <Content Include="Areas\Client\images\linkedin.png" />
     <Content Include="Areas\Client\images\list-img.png" />
     <Content Include="Areas\Client\images\logo.png" />
+    <Content Include="Areas\Client\images\logo2.png" />
+    <Content Include="Areas\Client\images\logo3.png" />
+    <Content Include="Areas\Client\images\logox.png" />
     <Content Include="Areas\Client\images\new-pic1.jpg" />
     <Content Include="Areas\Client\images\new-pic2.jpg" />
     <Content Include="Areas\Client\images\new-pic3.jpg" />

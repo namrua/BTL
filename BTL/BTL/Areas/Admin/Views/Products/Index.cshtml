@@ -1,154 +1,107 @@
-﻿@model IEnumerable<Model.EF.Product>
-
+﻿@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout2.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sach san pham</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn btn-success"> @Html.ActionLink("Create New", "Create", null, new { style = "color:aliceblue" })</button>
+</p>
+<p>
+
+    @using (Html.BeginForm("Index", "Products", FormMethod.Post))
+    {
+        <input class="col-md-3" value="@ViewBag.searchString" type="text" placeholder="Tim kiem" name="searchString" />
+        <button type="submit" class="label-info">Search</button>
+
+    }
+
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.Label("Ten san pham")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MetaTitle)
+            @Html.Label("Anh")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.Label("Gia")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+            @Html.Label("Tang Gia")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MoreImages)
+            @Html.Label("Bao gom VAT")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.Label("So luong")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PromotionPrice)
+            @Html.Label("Category ID")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IncludeVAT)
+            @Html.Label("Tao boi")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            @Html.Label("Trang thai")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Detail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Warranty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaKeywords)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaDescriptions)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopHot)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ViewCount)
+            @Html.Label("So luong xem")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MoreImages)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PromotionPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IncludeVAT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Detail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Warranty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaKeywords)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaDescriptions)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopHot)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ViewCount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <img src="@item.Image" height="60" width="70" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotionPrice)
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.IncludeVAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @if (item.Status)
+                {
+                    @Html.Label("Active")
+                }
+                else
+                {
+                    @Html.Label("Block")
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViewCount)
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+                <button type="button" class="btn btn-info"> @Html.ActionLink("Details", "Details", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+                <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager(Model, page => Url.Action(("Index"), new { page, @searchString = @ViewBag.searchString }))

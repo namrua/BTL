@@ -1,9 +1,11 @@
 ﻿@model Model.EF.Product
+
 @{
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/_layoutC.cshtml";
     var url = "/chi-tiet/" + Model.MetaTitle + "-" + Model.ID;
     var list = (List<Model.EF.Product>)ViewBag.ListReatedProducts;
+
 }
 <div class="content">
     <div class="content_top">
@@ -30,6 +32,7 @@
                 </div>
                 <div class="desc span_3_of_2">
                     <h2>@Model.Name </h2>
+                    <h2>Gioi thieu san pham</h2>
                     <p>@Model.Description.</p>
                     <div class="price">
                         <p>Price: <span>@Model.Price</span></p>
@@ -44,15 +47,6 @@
                                     <option>Black</option>
                                     <option>Dark Black</option>
                                     <option>Red</option>
-                                </select>
-                            </li>
-                            <li>
-                                Size:<select>
-                                    <option>Large</option>
-                                    <option>Medium</option>
-                                    <option>small</option>
-                                    <option>Large</option>
-                                    <option>small</option>
                                 </select>
                             </li>
                             <li>
@@ -144,7 +138,7 @@
 
             <div class="content_bottom">
                 <div class="heading">
-                    <h3>San pham lien quan</h3>
+                    <h3>Sản phẩm liên quan</h3>>
                 </div>
                 <div class="see">
                     <p><a href="#">See all Products</a></p>
@@ -154,27 +148,34 @@
             <div class="section group">
                 @if (list != null)
                 {
+    
                     foreach (var item in list)
                     {
                         var @urlimg = "/chi-tiet/" + item.MetaTitle + "-" + @item.ID;
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="@urlimg"><img src="@item.Image" style="width:212px; height:150px" alt=""></a>
-                <div class="price" style="border:none">
-                    <div class="add-cart" style="float:none">
-                        <h4><a href="#">Add to Cart</a></h4>
+                <div class="grid_1_of_4 images_1_of_4">
+                    <a href="@urlimg"><img src="@item.Image" style="width:212px; height:150px" alt=""></a>
+                    <h2>@Model.Name</h2>
+                    <div  style="border:none">
+                        <p>Price: <span>@Model.Price</span></p>
+                        <div class="add-cart" style="float:none">
+                            <h4><a href="#">Add to Cart</a></h4>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div class="clear"></div>
                 </div>
-            </div>
-}
-}
+                    }
+                }
 
             </div>
         </div>
         <div class="rightsidebar span_3_of_1">
-            <h2>CATEGORIES</h2>
+            <h2>Danh mục sản phẩm</h2>
             <ul class="side-w3ls">
-               @{ Html.RenderAction("ListCategory", "Product");}
+                <div id="menu">
+                    <ul>
+                        @{ Html.RenderAction("ListCategory", "Product");}
+                    </ul>
+                </div>
             </ul>
             <div class="subscribe">
                 <h2>Newsletters Signup</h2>

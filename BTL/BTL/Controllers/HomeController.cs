@@ -12,6 +12,7 @@ namespace BTL.Controllers
         {
             ViewBag.Slides = new SlideDao().ListAll();
             ViewBag.Products = new ProductDao().ListAll();
+            ViewBag.ListLaptop = new ProductDao().ListAllByProductCategoryID();
             return View();
         }
         [ChildActionOnly]

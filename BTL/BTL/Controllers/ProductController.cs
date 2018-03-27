@@ -21,10 +21,13 @@ namespace BTL.Controllers
             return PartialView(model);
         }
 
-        public ActionResult ProductCategory(long ID)
+        public ActionResult ProductCategory(String searchString, int page = 1, int pagesize = 4,long? ID=null)
         {
-            var model = new ProductCategoryDao().Details(ID);
-            ViewBag.ListProduct = new ProductDao().ListAllByProductCategoryID(ID);
+            ViewBag.Slides = new SlideDao().ListAll();
+            var dao = new ProductDao();
+            //var model = new ProductCategoryDao().Details(ID);
+            ViewBag.searchString = searchString;
+            var model = new ProductDao().ListAllByProductCategoryID(searchString,page,pagesize,ID);
             return View(model);
         }
         public ActionResult Product(long ID)

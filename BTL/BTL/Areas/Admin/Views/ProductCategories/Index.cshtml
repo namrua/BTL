@@ -5,10 +5,9 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout2.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Danh sach</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn btn-success"> @Html.ActionLink("Create New", "Create", null, new { style = "color:aliceblue" })</button>
 </p>
 <table class="table">
     <tr>
@@ -17,15 +16,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MetaTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParentID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DisplayOrder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SeoTitle)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedDate)
@@ -40,18 +30,8 @@
             @Html.DisplayNameFor(model => model.ModifiedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MetaKeywords)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaDescriptions)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowOnHome)
-        </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -61,15 +41,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MetaTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DisplayOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeoTitle)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedDate)
@@ -84,21 +55,19 @@
             @Html.DisplayFor(modelItem => item.ModifiedBy)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MetaKeywords)
+            @if (item.Status)
+        {
+            @Html.Label("Active")
+    }
+    else
+    {
+        @Html.Label("Block")
+}
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MetaDescriptions)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowOnHome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+            <button type="button" class="btn btn-info"> @Html.ActionLink("Details", "Details", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+            <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:aliceblue" })</button>
         </td>
     </tr>
 }

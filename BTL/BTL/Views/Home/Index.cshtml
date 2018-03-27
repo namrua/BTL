@@ -1,9 +1,13 @@
-﻿
+﻿@using Model.EF;
+@using Model.Dao;    
 @{
     ViewBag.Title = "Trang chu";
     Layout = "~/Views/Shared/_layoutC.cshtml";
     var ListProduct = (List<Model.EF.Product>)ViewBag.Products;
     var model = (List<Model.EF.Slide>)ViewBag.Slides;
+    var listProduct1 = new ProductDao().ListAllByProductCategoryID(4);
+    var listProduct2 = new ProductDao().ListAllByProductCategoryID(5);
+    var listProduct3 = new ProductDao().ListAllByProductCategoryID(8);
 }
 @section slide
 {
@@ -17,30 +21,14 @@
                 </ul>
             </div>
         </div>
-   </div>
-        <div class="header_bottom_right">
-            <div class="slider">
-                <div id="slider">
-                    <div id="mover">
-                        <div class="slide" id="slide-1">
-                            <div class="slider-img">
-                                <a href="preview.html"><img src="/Areas/Client/images/slide-1-image.png" alt="learn more" /></a>
-                            </div>
-                            <div class="slider-text">
-                                <h1>Clearance<br><span>SALE</span></h1>
-                                <h2>UPTo 20% OFF</h2>
-                                <div class="features_list">
-                                    <h4>Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text</h4>
-                                </div>
-                                <a href="preview.html" class="button">Shop Now</a>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        @foreach (var item in model)
-    {
-                    <div class="slide">
+    </div>
+    <div class="header_bottom_right">
+        <div class="slider">
+            <div id="slider">
+                <div id="mover">
+                    <div class="slide" id="slide-1">
                         <div class="slider-img">
-                            <a href="preview.html"><img src="@item.Image" alt="learn more" /></a>
+                            <a href="preview.html"><img src="/Areas/Client/images/slide-1-image.png" alt="learn more" /></a>
                         </div>
                         <div class="slider-text">
                             <h1>Clearance<br><span>SALE</span></h1>
@@ -52,29 +40,50 @@
                         </div>
                         <div class="clear"></div>
                     </div>
-    }
-                    </div>
+                    @foreach (var item in model)
+                    {
+                        <div class="slide">
+                            <div class="slider-img">
+                                <a href="preview.html"><img src="@item.Image" alt="learn more" /></a>
+                            </div>
+                            <div class="slider-text">
+                                <h1>Clearance<br><span>SALE</span></h1>
+                                <h2>UPTo 20% OFF</h2>
+                                <div class="features_list">
+                                    <h4>Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text</h4>
+                                </div>
+                                <a href="preview.html" class="button">Shop Now</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    }
                 </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    }
-    <div class="content">
-        <div class="content_top">
-            <div class="heading">
-                <h3>New Products</h3>
-            </div>
-            <div class="see">
-                <p><a href="#">See all Products</a></p>
             </div>
             <div class="clear"></div>
         </div>
-        <div class="section group">
-            @foreach (var item in ListProduct)
+    </div>
+    </div>
+}
+<div class="content">
+ <div class="clear"></div>
+<div class="content_top">
+    <div class="heading">
+        <h4>Laptop và phụ kiện</h4>
+    </div>
+    <div class="see">
+        <p><a href="#">See all Products</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section group">
+    @if (listProduct1!=null)
+    {
+        var i = 0;
+        foreach (var item in listProduct1)
         {
             var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="@url"><img src="@item.Image" style="width:212px; height:212px" alt="@item.Image" /></a>
+                <a href="@url"><img src="@item.Image" style="width:250px; height:200px" alt="@item.Image" /></a>
                 <h2>@item.Name </h2>
                 <div class="price-details">
                     <div class="price-number">
@@ -85,72 +94,90 @@
                     </div>
                     <div class="clear"></div>
                 </div>
-
             </div>
+            i++;
+            if (i >= 8)
+            {
+                break;
+            }
+        }
     }
 
-        </div>
-        <div class="content_bottom">
-            <div class="heading">
-                <h3>Feature Products</h3>
-            </div>
-            <div class="see">
-                <p><a href="#">See all Products</a></p>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="section group">
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="preview.html"><img src="/Areas/Client/images/new-pic1.jpg" alt="" /></a>
-                <h2>Lorem Ipsum is simply </h2>
-                <div class="price-details">
-                    <div class="price-number">
-                        <p><span class="rupees">$849.99</span></p>
-                    </div>
-                    <div class="add-cart">
-                        <h4><a href="preview.html">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="preview.html"><img src="/Areas/Client/images/new-pic2.jpg" alt="" /></a>
-                <h2>Lorem Ipsum is simply </h2>
-                <div class="price-details">
-                    <div class="price-number">
-                        <p><span class="rupees">$599.99</span></p>
-                    </div>
-                    <div class="add-cart">
-                        <h4><a href="preview.html">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="preview.html"><img src="/Areas/Client/images/new-pic4.jpg" alt="" /></a>
-                <h2>Lorem Ipsum is simply </h2>
-                <div class="price-details">
-                    <div class="price-number">
-                        <p><span class="rupees">$799.99</span></p>
-                    </div>
-                    <div class="add-cart">
-                        <h4><a href="preview.html">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="preview.html"><img src="/Areas/Client/images/new-pic3.jpg" alt="" /></a>
-                <h2>Lorem Ipsum is simply </h2>
-                <div class="price-details">
-                    <div class="price-number">
-                        <p><span class="rupees">$899.99</span></p>
-                    </div>
-                    <div class="add-cart">
-                        <h4><a href="preview.html">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-        </div>
+</div>
+<div class="content_bottom">
+    <div class="heading">
+        <h4>PC gaming & PC đồng bộ </h4>
     </div>
+    <div class="see">
+        <p><a href="#">See all Products</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section group">
+    @if (listProduct2 != null)
+    {
+        var i=0;
+        foreach (var item in listProduct2)
+        {
+            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.Image" style="width:295px; height:268px" alt="" /></a>
+                <h2>@item.Name </h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Lien he")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="preview.html">Add to Cart</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            i++;
+            if(i>=4)
+            {
+                break;
+            }
+        }
+    }
+
+</div>
+<div class="content_bottom">
+    <div class="heading">
+        <h4>Máy chủ & WorkStations</h4>
+    </div>
+    <div class="see">
+        <p><a href="#">See all Products</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section group">
+    @if (listProduct3 != null)
+    {
+        var i = 0;
+        foreach (var item in listProduct3)
+        {
+            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.Image" style="width:295px; height:268px" alt="" /></a>
+                <h2>@item.Name </h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Lien he")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="preview.html">Add to Cart</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            i++;
+            if (i >= 4)
+            {
+                break;
+            }
+        }
+    }
+
+</div>
+</div>
