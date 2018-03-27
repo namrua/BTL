@@ -161,6 +161,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
@@ -2796,6 +2797,7 @@
     <Content Include="Areas\Admin\Content\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Client\font\Amble-Regular-webfont.ttf" />
     <Content Include="Areas\Client\images\Thumbs.db" />
+    <Content Include="Areas\Admin\Views\LoginClient\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

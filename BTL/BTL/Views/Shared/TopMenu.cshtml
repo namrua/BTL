@@ -4,7 +4,8 @@
     <ul>
         @foreach (var item in Model)
         {
-            <li><a href="@item.Link">@item.Text</a></li>
+            var url = "/"+ item.Link + "-" + item.ID;
+            <li><a href="@url">@item.Text</a></li>
         }
     </ul>
 </div>

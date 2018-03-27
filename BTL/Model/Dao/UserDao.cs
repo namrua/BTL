@@ -10,7 +10,7 @@ namespace Model.Dao
 {
     public class UserDAO
     {
-        Dbcontext db = null;
+         Dbcontext db = null;
         public UserDAO()
         {
             db = new Dbcontext();

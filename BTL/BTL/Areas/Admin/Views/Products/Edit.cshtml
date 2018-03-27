@@ -1,16 +1,20 @@
 ﻿@model Model.EF.Product
-
+@using Model.EF;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_layout2.cshtml";
 }
-
+@{
+    var db = new Dbcontext();
+    var List = db.Categories.Where(x => x.Status == true).ToList();
+    ViewBag.CategoryID = new SelectList(List, "ID", "Name");
+}
 <h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Product</h4>
         <hr />
@@ -20,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-6">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" ,@id="txtName"} })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "txtName" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MetaTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-6">
-                @Html.EditorFor(model => model.MetaTitle, new { htmlAttributes = new { @class = "form-control", @id="txtmeta" } })
+                @Html.EditorFor(model => model.MetaTitle, new { htmlAttributes = new { @class = "form-control", @id = "txtmeta" } })
                 @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,7 +70,7 @@
                 @Html.EditorFor(model => model.MoreImages, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MoreImages, "", new { @class = "text-danger" })
             </div>
-           
+
         </div>
 
         <div class="form-group">
@@ -106,7 +110,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-6">
-                @Html.EditorFor(model => model.CategoryID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.CategoryID,null ,new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -200,20 +204,19 @@
                 @Html.ValidationMessageFor(model => model.ViewCount, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-6">
-                <input type="submit" value="Save" class="btn btn-default" onclick="return Meta()"/>
+                <input type="submit" value="Save" class="btn btn-default" onclick="return Meta()" />
             </div>
         </div>
     </div>
 }
-    <script>
-        function Meta() {
-            var x = document.getElementById("txtName").value.replace(/ /g, "-");
-            document.getElementById("txtmeta").value = x;
-        }
-    </script>
+<script>
+            function Meta() {
+                var x = document.getElementById("txtName").value.replace(/ /g, "-");
+                document.getElementById("txtmeta").value = x;
+            }
+</script>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

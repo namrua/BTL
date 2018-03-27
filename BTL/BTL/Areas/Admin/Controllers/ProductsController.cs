@@ -16,7 +16,7 @@ namespace BTL.Areas.Admin.Controllers
         private Dbcontext db = new Dbcontext();
 
         // GET: Admin/Products
-        public ActionResult Index(String searchString, int page = 1, int pagesize = 4)
+        public ActionResult Index(String searchString, int page = 1, int pagesize = 8)
         {
             var dao = new ProductDao();
             var model = dao.ListAll(searchString, page, pagesize);

@@ -5,6 +5,7 @@
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_layoutC.cshtml";
     var ListProduct = (List<Model.EF.Product>)ViewBag.ListProduct;
+    var ProductC = (Model.EF.ProductCategory)ViewBag.ProductCategory;
 }
 @section slide
 {
@@ -64,7 +65,10 @@
      <div class="clear"></div>
     <div class="content_top">
         <div class="heading">
-            <h3>New Products</h3>
+            @if(ProductC!=null)
+            {
+                 <h3 >@ProductC.Name</h3>
+            }
         </div>
         <div class="see">
             <p><a href="#">See all Products</a></p>

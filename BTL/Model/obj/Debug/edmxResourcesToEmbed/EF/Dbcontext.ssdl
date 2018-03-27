@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineShopMainModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Image" Type="nvarchar" MaxLength="250" />
+    <Property Name="Detail" Type="ntext" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaKeywords" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaDescriptions" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="SeoTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaKeywords" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaDescriptions" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="ShowOnHome1" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="ntext" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Image" Type="nvarchar" MaxLength="250" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="Detail" Type="ntext" />
+    <Property Name="Warranty" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaKeywords" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaDescriptions" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TopHot" Type="datetime" />
+    <Property Name="ViewCount" Type="int" />
+    <Property Name="Tags" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ContentTag">
+    <Key>
+      <PropertyRef Name="ContentID" />
+      <PropertyRef Name="TagID" />
+    </Key>
+    <Property Name="ContentID" Type="bigint" Nullable="false" />
+    <Property Name="TagID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FeedBack">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Content" Type="ntext" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Footer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="ntext" />
+    <Property Name="Link" Type="nchar" MaxLength="10" />
+    <Property Name="TypeID" Type="nchar" MaxLength="10" />
+    <Property Name="Target" Type="nchar" MaxLength="10" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FooterType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="Link" Type="nvarchar" MaxLength="250" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="Target" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="MenuType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="Image" Type="nvarchar" MaxLength="250" />
+    <Property Name="MoreImages" Type="xml" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PromotionPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IncludeVAT" Type="bit" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="Detail" Type="ntext" />
+    <Property Name="Warranty" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaKeywords" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaDescriptions" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TopHot" Type="datetime" />
+    <Property Name="ViewCount" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="SeoTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaKeywords" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaDescriptions" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="ShowOnHome" Type="bit" />
+  </EntityType>
+  <EntityType Name="Slide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="Link" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="SystemConfig">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Value" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="PassWord" Type="varchar" MaxLength="32" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserClient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Category_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OnlineShopMainModelStoreContainer">
+    <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContentTag" EntityType="Self.ContentTag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedBack" EntityType="Self.FeedBack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Footer" EntityType="Self.Footer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FooterType" EntityType="Self.FooterType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuType" EntityType="Self.MenuType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slide" EntityType="Self.Slide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemConfig" EntityType="Self.SystemConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserClient" EntityType="Self.UserClient" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Category_ProductCategory" Association="Self.FK_Category_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

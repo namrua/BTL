@@ -21,6 +21,7 @@ namespace BTL.Areas.Admin
                  new { action = "Index", id = UrlParameter.Optional },
                 new[] { "BTL.Areas.Admin.Controllers" }
             );
+
         }
     }
 }

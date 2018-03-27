@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Model.Dao;
 using Model.EF;
 
 namespace BTL.Areas.Admin.Controllers
@@ -15,9 +16,12 @@ namespace BTL.Areas.Admin.Controllers
         private Dbcontext db = new Dbcontext();
 
         // GET: Admin/Categories
-        public ActionResult Index()
+        public ActionResult Index(String searchString, int page = 1, int pagesize = 6)
         {
-            return View(db.Categories.ToList());
+            var dao = new CategoryDao();
+            var model = dao.ListAll(searchString, page, pagesize);
+            ViewBag.searchString = searchString;
+            return View(model);
         }
 
         // GET: Admin/Categories/Details/5

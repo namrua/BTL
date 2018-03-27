@@ -19,7 +19,7 @@ namespace Model.Dao
             return db.ProductCategories.Where(x => x.Status == true).OrderBy(x => x.CreatedDate).ToList();
         }
 
-        public ProductCategory Details(long ID)
+        public ProductCategory Details(long? ID)
         {
             return db.ProductCategories.Find(ID);
         }

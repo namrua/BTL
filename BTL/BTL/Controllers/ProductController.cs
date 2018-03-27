@@ -25,7 +25,7 @@ namespace BTL.Controllers
         {
             ViewBag.Slides = new SlideDao().ListAll();
             var dao = new ProductDao();
-            //var model = new ProductCategoryDao().Details(ID);
+            ViewBag.ProductCategory = new ProductCategoryDao().Details(ID);
             ViewBag.searchString = searchString;
             var model = new ProductDao().ListAllByProductCategoryID(searchString,page,pagesize,ID);
             return View(model);

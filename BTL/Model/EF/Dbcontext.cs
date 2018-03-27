@@ -28,6 +28,7 @@ namespace Model.EF
         public virtual DbSet<SystemConfig> SystemConfigs { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserClient> UserClients { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

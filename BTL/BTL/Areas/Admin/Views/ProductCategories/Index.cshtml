@@ -9,28 +9,26 @@
 <p>
     <button type="button" class="btn btn-success"> @Html.ActionLink("Create New", "Create", null, new { style = "color:aliceblue" })</button>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.Label("Tên loại sản phẩm")
+        </th>
+       
+        <th>
+            @Html.Label("Ngày tạo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MetaTitle)
+            @Html.Label("Người tạo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
+            @Html.Label("Ngày sửa đổi")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.Label("Người sửa đổi")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.Label("Trạng thái")
         </th>
     </tr>
 
@@ -38,9 +36,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaTitle)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedDate)

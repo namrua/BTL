@@ -310,8 +310,8 @@ body {
 }
 .heading h3 {
 	font-family: 'ambleregular';
-	font-size:22px;
-	color:#383838;
+	font-size:18px;
+	color:red;
 	text-transform: uppercase;
 }
 .see {

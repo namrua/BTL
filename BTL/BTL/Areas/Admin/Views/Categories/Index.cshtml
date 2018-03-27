@@ -1,106 +1,90 @@
-﻿@model IEnumerable<Model.EF.Category>
-
+﻿@model  PagedList.IPagedList<Model.EF.Category>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout2.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh mục sản phẩm</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn btn-success"> @Html.ActionLink("Create New", "Create", null, new { style = "color:aliceblue" })</button>
+</p>
+<p>
+
+    @using (Html.BeginForm("Index", "Categories", FormMethod.Post))
+    {
+        <input class="col-md-3" value="@ViewBag.searchString" type="text" placeholder="Tim kiem" name="searchString" />
+        <button type="submit" class="label-info">Search</button>
+
+    }
+
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.Label("Tên danh mục sản phẩm")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MetaTitle)
+            @Html.Label("Loại sản phẩm")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ParentID)
+            @Html.Label("Ngày tạo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DisplayOrder)
+            @Html.Label("Người tạo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SeoTitle)
+            @Html.Label("Ngày sửa")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
+            @Html.Label("Người sửa")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.Label("Trạng thái")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaKeywords)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaDescriptions)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowOnHome1)
-        </th>
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DisplayOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeoTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaKeywords)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaDescriptions)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowOnHome1)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedBy)
+            </td>
+            <td>
+                @if (item.Status)
+                {
+                    @Html.Label("Active")
+                }
+                else
+                {
+                    @Html.Label("Block")
+                }
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+                <button type="button" class="btn btn-info"> @Html.ActionLink("Details", "Details", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+                <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager(Model, page => Url.Action(("Index"), new { page, @searchString = @ViewBag.searchString }))
