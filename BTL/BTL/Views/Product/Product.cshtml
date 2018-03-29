@@ -83,9 +83,10 @@
                         <div class="clear"></div>
                     </ul>
                     <div class="resp-tabs-container">
-                        
-                        <div class="product-tags">
+                        <div class="product-desc">
                             <p>@Model.Detail</p>
+                        </div>
+                        <div class="product-tags">
                             <h4>Add Your Tags:</h4>
                             <div class="input-box">
                                 <input type="text" value="">
@@ -93,13 +94,13 @@
                             <div class="button"><span><a href="#">Add Tags</a></span></div>
                         </div>
                         <div class="review">
-                           
+                            
                             <ul>
                                 <li>Price :<a href="#"><img src="/Areas/Client/images/price-rating.png" alt="" /></a></li>
                                 <li>Value :<a href="#"><img src="/Areas/Client/images/value-rating.png" alt="" /></a></li>
                                 <li>Quality :<a href="#"><img src="/Areas/Client/images/quality-rating.png" alt="" /></a></li>
                             </ul>
-                          
+
                             <div class="your-review">
                                 <h3>Bạn đánh giá sản phẩm bao nhiêu sao?</h3>
                                 <p>Viết trên chính cảm nhận của bạn</p>
@@ -142,15 +143,17 @@
                     foreach (var item in list)
                     {
                         var @urlimg = "/chi-tiet/" + item.MetaTitle + "-" + @item.ID;
-                <div class="grid_1_of_4 images_1_of_4">
-                    <a href="@urlimg"><img src="@item.Image" style="width:212px; height:150px" alt=""></a>
-                    <h2>@Model.Name</h2>
-                    <div  style="border:none">
-                        <p>Price: <span>@Model.Price</span></p>
-                        <div class="add-cart" style="float:none">
-                            <h4><a href="#">Add to Cart</a></h4>
-                        </div>
-                        <div class="clear"></div>
+                <div class="grid_1_of_3 images_1_of_3">
+                    <a href="@urlimg"><img src="@item.Image" style="width:212px; height:210px" alt=""></a>
+                    <h2>@item.Name</h2>
+                   <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="preview.html">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
                     </div>
                 </div>
                     }
