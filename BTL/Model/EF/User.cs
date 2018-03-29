@@ -21,6 +21,9 @@ namespace Model.EF
         public string Name { get; set; }
 
         [StringLength(50)]
+        public string Role { get; set; }
+
+        [StringLength(50)]
         public string Address { get; set; }
 
         [StringLength(50)]
