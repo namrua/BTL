@@ -49,9 +49,7 @@
         <th>
             @Html.Label("Trang thai")
         </th>
-        <th>
-            @Html.Label("So luong xem")
-        </th>
+
         <th></th>
     </tr>
 
@@ -91,9 +89,6 @@
                 {
                     @Html.Label("Block")
                 }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ViewCount)
             </td>
             <td>
                 <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { style = "color:aliceblue" })</button>

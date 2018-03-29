@@ -48,7 +48,7 @@ namespace Model.EF
 
         public bool Status { get; set; }
 
-        public bool? ShowOnHome1 { get; set; }
+        public bool ShowOnHome1 { get; set; }
 
         public virtual ProductCategory ProductCategory { get; set; }
 

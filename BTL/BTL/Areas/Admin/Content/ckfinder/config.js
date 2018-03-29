@@ -13,10 +13,5 @@ CKFinder.customConfig = function( config )
 	// config.uiColor = '#BDE31E';
 	// config.language = 'fr';
     // config.removePlugins = 'basket';
-        filebrowserBrowseUrl ="/Areas/Admin/Content/ckfinder/ckfinder.html",
-        filebrowserImageBrowseUrl = "/Areas/Admin/Content/ckfinder/ckfinder.html?type=Images",
-        filebrowserFlashBrowseUrl = "/Areas/Admin/Content/ckfinder/ckfinder.html?type=Flash",
-        filebrowserUploadUrl = "/Areas/Admin/Content/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
-        filebrowserImageUploadUrl = "/Areas/Admin/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images",
-        filebrowserFlashUploadUrl = "/Areas/Admin/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash"
+       
 };
