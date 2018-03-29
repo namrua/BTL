@@ -1,13 +1,23 @@
-﻿@model List<Model.EF.ProductCategory>     
-        @foreach (var item in Model)
-        {
-            var url = "/san-pham/" + item.MetaTitle + "-" + item.ID;
-             <li>
-                 <a href="@url">@item.Name</a>
-                    <ul class="submenu">
-                        <li><a href="#">Laptop MSI</a></li>
-                        <li><a href="#">Laptop Dell</a></li>
-                        <li><a href="#">Laptop Asus</a></li>
-                    </ul>
-            </li>
-        }
+﻿@model List<Model.EF.ProductCategory>
+     @using Model.EF;
+    @using Model.Dao;
+@{
+    Dbcontext db = new Dbcontext();
+}
+    @foreach (var item in Model)
+    {
+        var url = "/danh-muc/" + item.MetaTitle + "-" + item.ID;
+        <li class="xxx">
+            <a href="@url">@item.Name</a>
+            <ul class="submenu">
+                @{ 
+                    var listCategory = db.Categories.Where(x => x.ParentID == item.ID).ToList();
+                }
+                @foreach (var item2 in listCategory)
+                {
+                    var url2= "/san-pham/" + item2.MetaTitle + "-" + item2.ID;
+                     <li><a href="@url2">@item2.Name</a></li>
+                }
+            </ul>
+        </li>
+    }

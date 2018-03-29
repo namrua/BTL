@@ -19,15 +19,15 @@
 	    float: left; 
 	    position: relative; 
  }
- .slider-text{
- 	float:left;
+.slider-text{
+ 	float:right;
  	width:47%;
  	padding-left:4%;
  	padding-top:3%;
  }
- .slider-img{
+.slider-img{
  	float:left;
- 	width:42%;
+ 	width:40%;
  }
 .slide h1{ 
 	   font-size:2.5em; 

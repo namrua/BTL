@@ -23,5 +23,9 @@ namespace Model.Dao
         {
             return db.ProductCategories.Find(ID);
         }
+        public List<Category> ListCategoryByID(long? ID)
+        {
+            return db.Categories.Where(x => x.ParentID == ID).ToList();
+        }
     }
 }

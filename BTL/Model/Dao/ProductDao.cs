@@ -65,7 +65,7 @@ namespace Model.Dao
             }
             if(!String.IsNullOrEmpty(searchString))
             {
-                modelx = modelx.Where(x => x.Name.Contains(searchString)).OrderBy(x => x.CreatedDate).ToList();
+                modelx = modelx.Where(x => x.Name.Contains(searchString)).ToList();
             }
             return modelx.ToPagedList(page, pagesize);
         }

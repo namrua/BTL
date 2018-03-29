@@ -1,11 +1,9 @@
 ﻿@model PagedList.IPagedList<Model.EF.Product>
 @using PagedList.Mvc;
 @{
-    var ListSlides = (List<Model.EF.Slide>)ViewBag.Slides;
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_layoutC.cshtml";
-    var ListProduct = (List<Model.EF.Product>)ViewBag.ListProduct;
-    var ProductC = (Model.EF.ProductCategory)ViewBag.ProductCategory;
+    var ProductC = (Model.EF.Category)ViewBag.NameCategory;
 }
 @section slide
 {
@@ -28,15 +26,15 @@
                 <div class="clear"></div>
             </div>
         </div>
-        </div>
+    </div>
 }
 <div class="content">
-     <div class="clear"></div>
+    <div class="clear"></div>
     <div class="content_top">
         <div class="heading">
-            @if(ProductC!=null)
+            @if (ProductC != null)
             {
-                 <h3 >@ProductC.Name</h3>
+                <h3>@ProductC.Name</h3>
             }
         </div>
         <div class="see">
@@ -44,8 +42,9 @@
         </div>
         <p>
 
-            @using (Html.BeginForm("ProductCategory", "Product", FormMethod.Post))
+            @using (Html.BeginForm("Category", "Product", FormMethod.Post))
             {
+             
                 <input class="search_box" value="@ViewBag.searchString" type="text" placeholder="Tim kiem" name="searchString" />
                 <button type="submit" class="label-info" id="btn">Search</button>
             }
@@ -54,8 +53,8 @@
         <div class="clear"></div>
     </div>
 
-        @Html.PagedListPager(Model, page => Url.Action(("ProductCategory"), new { page, @searchString = @ViewBag.searchString }))
-  
+    @Html.PagedListPager(Model, page => Url.Action(("Category"), new { page, @searchString = @ViewBag.searchString }))
+
     <div class="section group">
         @foreach (var item in Model)
         {
@@ -76,7 +75,7 @@
             </div>
         }
     </div>
-   
+
 </div>
 <script>
     document.getElementById("btn").style.visibility = "hidden";

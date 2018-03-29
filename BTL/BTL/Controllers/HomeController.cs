@@ -28,5 +28,11 @@ namespace BTL.Controllers
             var model = new MenuDao().ListMenubyGroupID(2);
             return PartialView(model);
         }
+        [ChildActionOnly]
+        public ActionResult Slide()
+        {
+            var model = new SlideDao().ListAll();
+            return PartialView(model);
+        }
     }
 }

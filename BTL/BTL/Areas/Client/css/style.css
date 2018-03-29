@@ -298,6 +298,20 @@ body {
 	border: 1px solid #EBE8E8;
 	border-radius: 3px;
 }
+.content_top ul{
+    margin: 0;
+    padding:0;
+}
+.content_top ul li{
+    float: left;
+    list-style:none;
+}
+.content_top ul li a{
+    display:block;
+    padding: 0 5%;
+    margin: 5% 5%;
+    color:red;
+}
 .content_bottom {
 	padding: 15px 20px;
 	border: 1px solid #EBE8E8;
@@ -412,7 +426,7 @@ body {
 	border-top:1px solid #CD1F25;
 }
 .price-number{
-	float: left;
+	
 	padding-top: 5px;
 }
 .price-details p span.rupees{
@@ -2009,4 +2023,5 @@ body {
 
 #menu ul li:hover .submenu {
     display: block;
+    background-color: #FAFAFA;
 }

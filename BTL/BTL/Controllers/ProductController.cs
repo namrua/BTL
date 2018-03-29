@@ -1,4 +1,5 @@
 ﻿using Model.Dao;
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace BTL.Controllers
 {
     public class ProductController : Controller
     {
+        Dbcontext db = new Dbcontext();
         // GET: ProductCategory
         public ActionResult Index()
         {
@@ -34,6 +36,12 @@ namespace BTL.Controllers
         {
             var model = new ProductDao().Details(ID);
             ViewBag.ListReatedProducts = new ProductDao().ListReatedProducts(ID);
+            return View(model);
+        }
+        public ActionResult Category(String searchString, int page = 1, int pagesize = 4, long? ID = null)
+        {
+            var model = new CategoryDao().ListAllByProductCategoryID(searchString, page, pagesize, ID);
+            ViewBag.NameCategory = db.Categories.Find(ID);
             return View(model);
         }
     }
