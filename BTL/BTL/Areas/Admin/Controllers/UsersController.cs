@@ -162,5 +162,14 @@ namespace BTL.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
+        {
+            var res = new UserDAO().ChangeStatus(id);
+            return Json(new
+            {
+                status = res
+            });
+        }
     }
 }

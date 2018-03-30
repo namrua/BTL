@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Xml.Linq;
 using Model.Dao;
 using Model.EF;
 
@@ -49,7 +51,7 @@ namespace BTL.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,MetaTitle,Description,Image,MoreImages,Price,PromotionPrice,IncludeVAT,Quantity,CategoryID,Detail,Warranty,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescriptions,Status,TopHot,ViewCount")] Product product)
+        public ActionResult Create([Bind(Include = "ID,Name,Code,MetaTitle,Description,Image,MoreImages,Price,PromotionPrice,IncludeVAT,Quantity,CategoryID,Detail,Warranty,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescriptions,Status,TopHot,ViewCount")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +83,7 @@ namespace BTL.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,MetaTitle,Description,Image,MoreImages,Price,PromotionPrice,IncludeVAT,Quantity,CategoryID,Detail,Warranty,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescriptions,Status,TopHot,ViewCount")] Product product)
+        public ActionResult Edit([Bind(Include = "ID,Name,Code,MetaTitle,Description,Image,MoreImages,Price,PromotionPrice,IncludeVAT,Quantity,CategoryID,Detail,Warranty,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescriptions,Status,TopHot,ViewCount")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -125,6 +127,58 @@ namespace BTL.Areas.Admin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public JsonResult SaveImages(long id, String images)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            //chuyen ve list images
+            var listImages = serializer.Deserialize<List<String>>(images);
+
+            XElement xElement = new XElement("Images");
+
+            //tao 1 mang Xelement
+            foreach (var item in listImages)
+            {
+                var itemx = item.Substring(23);
+                xElement.Add(new XElement("Image", itemx));
+            }
+            ProductDao dao = new ProductDao();
+            dao.UpdateImages(id, xElement.ToString());
+            try
+            {
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            catch(Exception e)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+        }
+        public JsonResult LoadImages(long id)
+        {
+            var product = new ProductDao().Details(id);
+            var images = product.MoreImages;
+            List<String> ListImageString = new List<string>();
+            //convert tu xml sang xlement
+            if(images!=null)
+            {
+                XElement xImages = XElement.Parse(images);
+
+
+                foreach (var item in xImages.Elements())
+                {
+                    ListImageString.Add(item.Value);
+                }
+            }
+            return Json(new
+            {
+                data = ListImageString
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

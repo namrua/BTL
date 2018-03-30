@@ -79,6 +79,12 @@ namespace Model.Dao
             }
             return model.ToPagedList(page, pagesize);
         }
-
+        //update list image
+        public void UpdateImages(long ProductId, string images)
+        {
+            var product = db.Products.Find(ProductId);
+            product.MoreImages = images;
+            db.SaveChanges();
+        }
     }
 }

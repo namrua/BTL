@@ -6,7 +6,9 @@
 }
 
 <h2>Danh sach san pham</h2>
-
+@section jsFooter{
+    <script src="/Areas/Admin/AssetsAdmin/dist/js/Controller/ProductController.js"></script>
+}
 <p>
     <button type="button" class="btn btn-success"> @Html.ActionLink("Create New", "Create", null, new { style = "color:aliceblue" })</button>
 </p>
@@ -23,31 +25,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.Label("Ten san pham")
+            @Html.Label("Tên sản phẩm")
         </th>
         <th>
-            @Html.Label("Anh")
+            @Html.Label("Ảnh")
         </th>
         <th>
-            @Html.Label("Gia")
+            @Html.Label("Giá")
         </th>
         <th>
-            @Html.Label("Tang Gia")
+            @Html.Label("VAT")
         </th>
         <th>
-            @Html.Label("Bao gom VAT")
+            @Html.Label("Số lượng")
         </th>
         <th>
-            @Html.Label("So luong")
+            @Html.Label("Danh Mục")
         </th>
         <th>
-            @Html.Label("Category ID")
+            @Html.Label("Tạo bởi")
         </th>
         <th>
-            @Html.Label("Tao boi")
-        </th>
-        <th>
-            @Html.Label("Trang thai")
+            @Html.Label("Trạng thái")
         </th>
 
         <th></th>
@@ -64,9 +63,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PromotionPrice)
             </td>
             <td>
                 @Html.CheckBoxFor(modelItem => item.IncludeVAT)
@@ -94,9 +90,39 @@
                 <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { style = "color:aliceblue" })</button>
                 <button type="button" class="btn btn-info"> @Html.ActionLink("Details", "Details", new { id = item.ID }, new { style = "color:aliceblue" })</button>
                 <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:aliceblue" })</button>
+                <a href="#" class="btn-images" data-id="@item.ID">Ảnh</a>
             </td>
         </tr>
     }
 
 </table>
 @Html.PagedListPager(Model, page => Url.Action(("Index"), new { page, @searchString = @ViewBag.searchString }))
+<!-- The Modal -->
+<div class="modal fade" id="imagesManage">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Ảnh sản phẩm</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div id="imageList" style="margin:5px;">
+                    
+                </div>
+                
+            </div>
+            <input type="hidden" id="hidProductID" value="0" />
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <input type="button" id="btnChooseImages" value="Chọn ảnh" class="btn btn-primary" />
+                <button type="button" class="btn btn-success" id="saveImages">Lưu</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

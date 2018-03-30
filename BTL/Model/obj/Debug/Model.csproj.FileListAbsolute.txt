@@ -43,3 +43,4 @@ C:\Users\NamND\Documents\GitHub\BTL\BTL\Model\obj\Debug\Model.csproj.CoreCompile
 C:\Users\NamND\Documents\GitHub\BTL\BTL\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\NamND\Documents\GitHub\BTL\BTL\Model\obj\Debug\Model.dll
 C:\Users\NamND\Documents\GitHub\BTL\BTL\Model\obj\Debug\Model.pdb
+C:\Users\NamND\Documents\GitHub\BTL\BTL\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

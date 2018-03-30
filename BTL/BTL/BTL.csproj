@@ -1731,6 +1731,8 @@
     <Content Include="Areas\Admin\AssetsAdmin\dist\img\user8-128x128.jpg" />
     <Content Include="Areas\Admin\AssetsAdmin\dist\js\adminlte.js" />
     <Content Include="Areas\Admin\AssetsAdmin\dist\js\adminlte.min.js" />
+    <Content Include="Areas\Admin\AssetsAdmin\dist\js\Controller\ProductController.js" />
+    <Content Include="Areas\Admin\AssetsAdmin\dist\js\Controller\UserController.js" />
     <Content Include="Areas\Admin\AssetsAdmin\dist\js\demo.js" />
     <Content Include="Areas\Admin\AssetsAdmin\dist\js\pages\dashboard.js" />
     <Content Include="Areas\Admin\AssetsAdmin\dist\js\pages\dashboard2.js" />

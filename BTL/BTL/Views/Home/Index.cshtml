@@ -50,7 +50,7 @@
     <ul>
         @foreach (var item in listCategory1)
         {
-            var url2= "/danh-muc/" + item.MetaTitle + "-" + item.ID;
+            var url2= "/san-pham/" + item.MetaTitle + "-" + item.ID;
              <li><a href="@url2">@item.Name</a></li>
         }
     </ul>
@@ -92,6 +92,13 @@
     <div class="heading">
         <h4><a href="/danh-muc/PC-đồng-bộ-và-PC-gaming-5">PC gaming & PC đồng bộ</a> </h4>
     </div>
+    <ul>
+        @foreach (var item in listCategory2)
+        {
+            var url2 = "/san-pham/" + item.MetaTitle + "-" + item.ID;
+            <li><a href="@url2">@item.Name</a></li>
+        }
+    </ul>
     <div class="see">
         <p><a href="#">See all Products</a></p>
     </div>
@@ -130,6 +137,13 @@
     <div class="heading">
         <h4><a href="/danh-muc/Máy-chủ-và-Workstation-8">Máy chủ & WorkStations</a></h4>
     </div>
+    <ul>
+        @foreach (var item in listCategory3)
+        {
+            var url2 = "/san-pham/" + item.MetaTitle + "-" + item.ID;
+            <li><a href="@url2">@item.Name</a></li>
+        }
+    </ul>
     <div class="see">
         <p><a href="#">See all Products</a></p>
     </div>
@@ -164,10 +178,17 @@
     }
 
 </div>
-    <div class="content_bottom">
+<div class="content_bottom">
     <div class="heading">
         <h4><a href="/danh-muc/Linh-kiện-máy-tính-10">Linh kiện máy tính</a></h4>
     </div>
+    <ul>
+        @foreach (var item in listCategory4)
+        {
+            var url2 = "/san-pham/" + item.MetaTitle + "-" + item.ID;
+            <li><a href="@url2">@item.Name</a></li>
+        }
+    </ul>
     <div class="see">
         <p><a href="#">See all Products</a></p>
     </div>
@@ -202,10 +223,17 @@
     }
 
 </div>
-    <div class="content_bottom">
+<div class="content_bottom">
     <div class="heading">
         <h4><a href="/danh-muc/Tản-nhiệt-cooling-11">Tản nhiệt - cooling</a></h4>
     </div>
+    <ul>
+        @foreach (var item in listCategory5)
+        {
+            var url2 = "/san-pham/" + item.MetaTitle + "-" + item.ID;
+            <li><a href="@url2">@item.Name</a></li>
+        }
+    </ul>
     <div class="see">
         <p><a href="#">See all Products</a></p>
     </div>
