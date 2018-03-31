@@ -139,7 +139,7 @@ namespace BTL.Areas.Admin.Controllers
             //tao 1 mang Xelement
             foreach (var item in listImages)
             {
-                var itemx = item.Substring(23);
+                var itemx = item.Substring(22);
                 xElement.Add(new XElement("Image", itemx));
             }
             ProductDao dao = new ProductDao();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace BTL.Controllers
 {
@@ -43,6 +44,29 @@ namespace BTL.Controllers
             var model = new CategoryDao().ListAllByProductCategoryID(searchString, page, pagesize, ID);
             ViewBag.NameCategory = db.Categories.Find(ID);
             return View(model);
+        }
+
+        //load Json do xuong ajax
+        public JsonResult LoadImagesPro(long id)
+        {
+            var product = new ProductDao().Details(id);
+            var images = product.MoreImages;
+            List<String> ListImageString = new List<string>();
+            //convert tu xml sang xlement
+            if (images != null)
+            {
+                XElement xImages = XElement.Parse(images);
+
+
+                foreach (var item in xImages.Elements())
+                {
+                    ListImageString.Add(item.Value);
+                }
+            }
+            return Json(new
+            {
+                data = ListImageString
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -45,7 +45,7 @@
  <div class="clear"></div>
 <div class="content_top">
     <div class="heading">
-        <h4><a href="/Home/danh-muc/laptop-va-phukien-4">Laptop và phụ kiện</a></h4>
+        <h4><a href="/danh-muc/Laptop-và-phụ-kiện-4">Laptop và phụ kiện</a></h4>
     </div>
     <ul>
         @foreach (var item in listCategory1)
@@ -67,7 +67,7 @@
         {
             var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
             <div class="grid_1_of_6 images_1_of_6">
-                <a href="@url"><img src="@item.Image" style="width:250px; height:140px" alt="@item.Image" /></a>
+                <a href="@url"><img src="@item.Image" style="width:250px; height:120px" alt="@item.Image" /></a>
                 <h2>@item.Name </h2>
                 <div class="price-details">
                     <div class="price-number">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             i++;
-            if (i >= 8)
+            if (i >= 12)
             {
                 break;
             }

@@ -673,6 +673,10 @@ body {
 .images_3_of_2  img {
 	max-width: 100%;
 }
+.images_3_of_2 img:hover {
+    cursor:pointer;
+    transform:scale(4,4);
+}
 .span_3_of_2  h2 {
 	font-family: 'ambleregular';
 	font-size: 1.1em;
@@ -2038,4 +2042,12 @@ body {
 #menu ul li:hover .submenu {
     display: block;
     background-color: #FAFAFA;
+}
+#subImages img:hover{
+    cursor:pointer;
+    transform:scale(4,4);
+}
+.xxx img:hover {
+    cursor: pointer;
+    transform: scale(4,4);
 }

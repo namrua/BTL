@@ -25,7 +25,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript" src="/Areas/Client/js/jquery.accordion.js"></script>
     <script type="text/javascript" src="/Areas/Client/js/script.js"></script>
     <script type="text/javascript" src="/Areas/Client/js/jquery.easing.js"></script>
-    <link  rel="stylesheet" href="/Areas/Admin/AssetsAdmin/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/Areas/Admin/AssetsAdmin/bootstrap/dist/css/bootstrap.min.css" />
 
 
 </head>
@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="main">
             @RenderBody()
         </div>
-     
+
     </div>
     <div class="footer">
         <div class="wrap">
@@ -157,12 +157,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <script type="text/javascript">
-		$(document).ready(function() {
-			$().UItoTop({ easingType: 'easeOutQuart' });
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
 
-		});
+        });
     </script>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+    @RenderSection("JsFooter", required: false)
 </body>
 </html>
 
