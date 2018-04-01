@@ -1,0 +1,96 @@
+﻿@model Model.EF.Order
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout2.cshtml";
+    var ListOrder = (List<Model.EF.OrderDetail>)ViewBag.ListOrder;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal col-md-6">
+
+        <dt>
+            @Html.Label("Ngày tạo:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.Label("ID khách hàng:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+
+        <dt>
+            @Html.Label("Tên khách hàng:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipName)
+        </dd>
+
+        <dt>
+            @Html.Label("Số điện thoại:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipMobile)
+        </dd>
+
+        <dt>
+            @Html.Label("Địa chỉ:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipAddress)
+        </dd>
+
+        <dt>
+            @Html.Label("Email:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipEmail)
+        </dd>
+
+        <dt>
+            @Html.Label("Trạng thái:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+    <div class="dl-horizontal col-md-6">
+        <table class="table">
+            <tr>
+                <td>ID sản phẩm</td>
+                <td>Tên sản phẩm</td>
+                <td>Số lượng</td>
+                <td>Giá</td>
+            </tr>
+
+            @foreach (var item in ListOrder)
+            {
+                <tr>
+                    <td>@item.ProductID</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div class="clearfix">
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

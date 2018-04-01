@@ -50,8 +50,7 @@
                     
                 }
             });
-        })
-        
+        }) 
     },
     loadImages: function () {
         var ID = $('#hidProductID').val();

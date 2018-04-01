@@ -45,7 +45,7 @@
  <div class="clear"></div>
 <div class="content_top">
     <div class="heading">
-        <h4><a href="/danh-muc/Laptop-và-phụ-kiện-4">Laptop và phụ kiện</a></h4>
+        <h4>Laptop và phụ kiện</h4>
     </div>
     <ul>
         @foreach (var item in listCategory1)
@@ -55,7 +55,7 @@
         }
     </ul>
     <div class="see">
-        <p><a href="#">See all Products</a></p>
+        <p><a href="/danh-muc/Laptop-và-phụ-kiện-4">Tất cả sản phẩm </a></p>
     </div>
     <div class="clear"></div>
 </div>
@@ -67,14 +67,14 @@
         {
             var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
             <div class="grid_1_of_6 images_1_of_6">
-                <a href="@url"><img src="@item.Image" style="width:250px; height:120px" alt="@item.Image" /></a>
+                <a href="@url"><img src="@item.Image" style="width:250px; height:110px" alt="@item.Image" /></a>
                 <h2>@item.Name </h2>
                 <div class="price-details">
                     <div class="price-number">
                         <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</span></p>
                     </div>
                     <div class="add-cart">
-                        <h4><a href="preview.html">Thêm vào giỏ</a></h4>
+                        <h4><a href="/them-gio-hang?productID=@item.ID&quantity=1">Thêm vào giỏ</a></h4>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -90,7 +90,7 @@
 </div>
 <div class="content_bottom">
     <div class="heading">
-        <h4><a href="/danh-muc/PC-đồng-bộ-và-PC-gaming-5">PC gaming & PC đồng bộ</a> </h4>
+        <h4>PC gaming & PC đồng bộ</h4>
     </div>
     <ul>
         @foreach (var item in listCategory2)
@@ -100,7 +100,7 @@
         }
     </ul>
     <div class="see">
-        <p><a href="#">See all Products</a></p>
+        <p><a href="/danh-muc/PC-đồng-bộ-và-PC-gaming-5">Tất cả sản phẩm </a></p>
     </div>
     <div class="clear"></div>
 </div>
@@ -135,7 +135,7 @@
 </div>
 <div class="content_bottom">
     <div class="heading">
-        <h4><a href="/danh-muc/Máy-chủ-và-Workstation-8">Máy chủ & WorkStations</a></h4>
+        <h4>Máy chủ & WorkStations</h4>
     </div>
     <ul>
         @foreach (var item in listCategory3)
@@ -145,7 +145,7 @@
         }
     </ul>
     <div class="see">
-        <p><a href="#">See all Products</a></p>
+        <p><a href="/danh-muc/Máy-chủ-và-Workstation-8">Tất cả sản phẩm </a></p>
     </div>
     <div class="clear"></div>
 </div>
@@ -180,7 +180,7 @@
 </div>
 <div class="content_bottom">
     <div class="heading">
-        <h4><a href="/danh-muc/Linh-kiện-máy-tính-10">Linh kiện máy tính</a></h4>
+        <h4>Linh kiện máy tính</h4>
     </div>
     <ul>
         @foreach (var item in listCategory4)
@@ -190,7 +190,7 @@
         }
     </ul>
     <div class="see">
-        <p><a href="#">See all Products</a></p>
+        <p><a href="/danh-muc/Linh-kiện-máy-tính-10">Tất cả sản phẩm </a></p>
     </div>
     <div class="clear"></div>
 </div>
@@ -225,7 +225,7 @@
 </div>
 <div class="content_bottom">
     <div class="heading">
-        <h4><a href="/danh-muc/Tản-nhiệt-cooling-11">Tản nhiệt - cooling</a></h4>
+        <h4>Tản nhiệt - cooling</h4>
     </div>
     <ul>
         @foreach (var item in listCategory5)
@@ -235,7 +235,7 @@
         }
     </ul>
     <div class="see">
-        <p><a href="#">See all Products</a></p>
+        <p><a href="/danh-muc/Tản-nhiệt-cooling-11">Tất cả sản phẩm </a></p>
     </div>
     <div class="clear"></div>
 </div>

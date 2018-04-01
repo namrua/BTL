@@ -19,7 +19,13 @@ namespace Model.EF
         [StringLength(50)]
         public string Link { get; set; }
 
+        [StringLength(250)]
+        public string TypeSale { get; set; }
+
         [StringLength(50)]
+        public string Saletext { get; set; }
+
+        [StringLength(250)]
         public string Description { get; set; }
 
         public DateTime? CreatedDate { get; set; }

@@ -6,17 +6,24 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ContentTag")]
-    public partial class ContentTag
+    [Table("OrderDetail")]
+    public partial class OrderDetail
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long ContentID { get; set; }
+        public long ProductID { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(50)]
-        public string TagID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long OrderID { get; set; }
+
+        [StringLength(250)]
+        public string ProductName { get; set; }
+
+        public int? Quantity { get; set; }
+
+        public decimal? Price { get; set; }
     }
 }

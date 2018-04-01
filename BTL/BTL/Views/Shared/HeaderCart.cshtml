@@ -1,0 +1,8 @@
+﻿@model List<BTL.Models.CartItem>
+<div class="cart">
+    <p>
+            <span><a href="/gio-hang"><img src="/Areas/Client/images/cart.png" /></a></span><div id="dd" class="wrapper-dropdown-2">
+            @Model.Count sản phẩm - @(Model.Sum(x=>x.Product.Price*x.Quantity))
+        </div>
+    </p>
+</div>

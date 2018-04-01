@@ -36,7 +36,7 @@ namespace Model.Dao
             var modelx = new List<Product>();
             foreach (var item in model)
             {
-                var m = db.Products.Where(x => x.CategoryID == item.ID);
+                var m = db.Products.Where(x => x.CategoryID == item.ID).OrderBy(x=>x.CreatedDate);
                 if (m != null)
                 {
                     foreach (var itemx in m)

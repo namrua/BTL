@@ -20,6 +20,30 @@ namespace BTL
                 namespaces: new[] { "BTL.Controllers" }
             );
             routes.MapRoute(
+                name: "Them gio hang",
+                url: "them-gio-hang",
+                defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
+                namespaces: new[] { "BTL.Controllers" }
+            );
+            routes.MapRoute(
+               name: "Gio hang",
+               url: "gio-hang",
+               defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
+               namespaces: new[] { "BTL.Controllers" }
+           );
+            routes.MapRoute(
+              name: "Thanh toan",
+              url: "thanh-toan",
+              defaults: new { controller = "Cart", action = "Payment", id = UrlParameter.Optional },
+              namespaces: new[] { "BTL.Controllers" }
+          );
+            routes.MapRoute(
+            name: "Thanh toan thanh cong",
+            url: "hoan-thanh",
+            defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional },
+            namespaces: new[] { "BTL.Controllers" }
+        );
+            routes.MapRoute(
                 name: "Category",
                 url: "san-pham/{metatitle}-{id}",
                 defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },

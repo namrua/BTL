@@ -23,8 +23,8 @@ namespace BTL.Controllers
             var model = new ProductCategoryDao().ListProductCategory();
             return PartialView(model);
         }
-
-        public ActionResult ProductCategory(String searchString, int page = 1, int pagesize = 4,long? ID=null)
+        //category trong client
+        public ActionResult ProductCategory(String searchString, int page = 1, int pagesize = 6,long? ID=null)
         {
             ViewBag.Slides = new SlideDao().ListAll();
             var dao = new ProductDao();
@@ -39,6 +39,7 @@ namespace BTL.Controllers
             ViewBag.ListReatedProducts = new ProductDao().ListReatedProducts(ID);
             return View(model);
         }
+        //category trong admin
         public ActionResult Category(String searchString, int page = 1, int pagesize = 4, long? ID = null)
         {
             var model = new CategoryDao().ListAllByProductCategoryID(searchString, page, pagesize, ID);

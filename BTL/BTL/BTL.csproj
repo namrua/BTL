@@ -163,6 +163,8 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderDetailsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
@@ -171,11 +173,13 @@
     <Compile Include="Areas\Common\Encriptor.cs" />
     <Compile Include="Areas\Common\UserLogin.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2683,6 +2687,7 @@
     <Content Include="Areas\Client\images\arrow_up.png" />
     <Content Include="Areas\Client\images\banner.jpg" />
     <Content Include="Areas\Client\images\bannerx.png" />
+    <Content Include="Areas\Client\images\cart.png" />
     <Content Include="Areas\Client\images\compare.png" />
     <Content Include="Areas\Client\images\delivery-img1.jpg" />
     <Content Include="Areas\Client\images\delivery-img2.jpg" />
@@ -2718,6 +2723,7 @@
     <Content Include="Areas\Client\images\productslide-6.jpg" />
     <Content Include="Areas\Client\images\quality-rating.png" />
     <Content Include="Areas\Client\images\search.png" />
+    <Content Include="Areas\Client\images\shipper.jpg" />
     <Content Include="Areas\Client\images\skype.png" />
     <Content Include="Areas\Client\images\slide 5.jpg" />
     <Content Include="Areas\Client\images\slide 6.jpg" />
@@ -2744,6 +2750,7 @@
     <Content Include="Areas\Client\images\twitter.png" />
     <Content Include="Areas\Client\images\value-rating.png" />
     <Content Include="Areas\Client\images\wishlist.png" />
+    <Content Include="Areas\Client\js\cartController.js" />
     <Content Include="Areas\Client\js\easing.js" />
     <Content Include="Areas\Client\js\easyResponsiveTabs.js" />
     <Content Include="Areas\Client\js\jquery-1.7.2.min.js" />
@@ -2977,6 +2984,16 @@
     <Content Include="Areas\Admin\Content\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Areas\Admin\Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Areas\Admin\Content\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Areas\Admin\Views\Orders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetails\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetails\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetails\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetails\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetails\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -3007,12 +3024,15 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Product\Category.cshtml" />
     <Content Include="Views\Shared\Slide.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\Images\AdminImages\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

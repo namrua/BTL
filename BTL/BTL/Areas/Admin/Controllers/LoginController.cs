@@ -37,19 +37,19 @@ namespace BTL.Areas.Admin.Controllers
                 {
                     if (res == -1)
                     {
-                        ViewBag.error = "Mat khau nhap vao khong dung";
+                        ViewBag.error = "Mật khẩu nhập vào không đúng";
                         return View("Index");
                     }
                     else
                     {
                         if (res == 0)
                         {
-                            ViewBag.error = "Tai khoan khong ton tai nha";
+                            ViewBag.error = "Tài khoản không tồn tại";
                             return View("Index");
                         }
                         else
                         {
-                            ViewBag.error = "Tai khoan da bi khoa";
+                            ViewBag.error = "Tài khoản bị khóa";
                             return View("Index");
                         }
                     }
@@ -57,7 +57,7 @@ namespace BTL.Areas.Admin.Controllers
             }
             else
             {
-                ViewBag.error = "Dang nhap that bai";
+                ViewBag.error = "Login thất bại";
                 return View("Index");
             }
         }
